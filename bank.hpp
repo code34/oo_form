@@ -4,8 +4,8 @@ class Gui_Bank{
 	//
 	movingEnable = true;
 	enableSimulation = true;
-	onLoad = "bank = NEW(OO_FORM, nil);";
-	onUnload =  "DELETE(bank);";
+	onLoad = "gui_bank = NEW(OO_FORM, nil);";
+	onUnload =  "DELETE(gui_bank);";
 
 	class controlsBackground {
 		class DA3F_BackG: MCF_RscText
@@ -93,7 +93,7 @@ class controls {
 			y = 0.532995 * safezoneH + safezoneY;
 			w = 0.0670055 * safezoneW;
 			h = 0.0329948 * safezoneH;
-			onButtonClick "'pressBtn_dep' call bank;"
+			onButtonClick " 'onClick_Btn_dep' call gui_bank;"
 		};
 		class DA3F_Retir: MCF_RscButtonMenu
 		{
@@ -103,7 +103,7 @@ class controls {
 			y = 0.576988 * safezoneH + safezoneY;
 			w = 0.0670055 * safezoneW;
 			h = 0.0329948 * safezoneH;
-			onButtonClick "'pressBtn_ret' call bank;"
+			onButtonClick " 'onClick_Btn_ret' call gui_bank;"
 		};
 		class DA3F_Close: MCF_RscButtonMenu
 		{
@@ -114,7 +114,7 @@ class controls {
 			w = 0.0309256 * safezoneW;
 			h = 0.0769879 * safezoneH;
 			colorBackground[] = {0.8,-1,-1,0.7};
-			onButtonClick "'pressBtn_end' call bank;"
+			onButtonClick " 'onClick_Btn_end' call gui_bank;"
 		};
 	};
 };

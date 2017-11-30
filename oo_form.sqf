@@ -32,7 +32,7 @@
 			MEMBER("text_bank", nil) ctrlSetStructuredText parseText format["%1",[DA3F_Bank]call DA3F_fnc_numberText];
 		};
 
-		PUBLIC FUNCTION("","pressBtn_ret") { 
+		PUBLIC FUNCTION("","onClick_Btn_ret") { 
 			DEBUG(#, "OO_FORM::pressBtn_ret")
 			private _depot=parseNumber(ctrlText(1400));
 			if (DA3F_Cash < _depot) exitWith {[1,"Opération impossible"]call DA3F_fnc_hint};
@@ -44,12 +44,7 @@
 			MEMBER("text_bank", nil) ctrlSetStructuredText parseText format["%1",[DA3F_Bank]call DA3F_fnc_numberText];
 		};
 
-		PUBLIC FUNCTION("","pressBtn_end") { 
-			DEBUG(#, "OO_FORM::pressBtn_end")
-			closeDialog 0;
-		};
-
-		PUBLIC FUNCTION("","pressBtn_dep") { 
+		PUBLIC FUNCTION("","onClick_Btn_dep") { 
 			DEBUG(#, "OO_FORM::pressBtn_dep")
 			private _depot=parseNumber(ctrlText(1400));
 			if (DA3F_Bank < _depot) exitWith {[1,"Opération impossible"]call DA3F_fnc_hint};
@@ -59,6 +54,11 @@
 			[false] call DA3F_fnc_SaveStats;
 			MEMBER("text_cash", nil) ctrlSetStructuredText parseText format["%1",[DA3F_Cash]call DA3F_fnc_numberText];
 			MEMBER("text_bank", nil) ctrlSetStructuredText parseText format["%1",[DA3F_Bank]call DA3F_fnc_numberText];
+		};
+
+		PUBLIC FUNCTION("","onClick_Btn_end") { 
+			DEBUG(#, "OO_FORM::pressBtn_end")
+			closeDialog 0;
 		};
 
 		PUBLIC FUNCTION("","deconstructor") { 
