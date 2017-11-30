@@ -16,7 +16,6 @@
 	
 	_display =(findDisplay 19319);
 	private _CashEnBank = profileNamespace getVariable "DA3F_civParty_SaveCash";
-	
 	if (isNil "_CashEnBank") then {_CashEnBank = 0};
 	
 	//_Id_Cash = 1101;

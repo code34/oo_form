@@ -27,6 +27,9 @@
 			MEMBER("btn_end", _display displayCtrl 2402);
 			MEMBER("text_cash", _display displayCtrl 1101);
 			MEMBER("text_bank", _display displayCtrl 1104);
+
+			MEMBER("text_cash", nil) ctrlSetStructuredText parseText format["%1",[DA3F_Cash]call DA3F_fnc_numberText];
+			MEMBER("text_bank", nil) ctrlSetStructuredText parseText format["%1",[DA3F_Bank]call DA3F_fnc_numberText];
 		};
 
 		PUBLIC FUNCTION("","pressBtn_ret") { 
@@ -39,6 +42,11 @@
 			[false] call DA3F_fnc_SaveStats;
 			MEMBER("text_cash", nil) ctrlSetStructuredText parseText format["%1",[DA3F_Cash]call DA3F_fnc_numberText];
 			MEMBER("text_bank", nil) ctrlSetStructuredText parseText format["%1",[DA3F_Bank]call DA3F_fnc_numberText];
+		};
+
+		PUBLIC FUNCTION("","pressBtn_end") { 
+			DEBUG(#, "OO_FORM::pressBtn_end")
+			closeDialog 0;
 		};
 
 		PUBLIC FUNCTION("","pressBtn_dep") { 
